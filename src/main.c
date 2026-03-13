@@ -8,32 +8,42 @@ int main() {
 
     int choice;
 
-    while (1) {
+    printf("1 Add Student\n");
+    printf("2 Exit\n");
 
-        printf("\n===== STUDENT MANAGEMENT SYSTEM =====\n");
-        printf("1. Add Student\n");
-        printf("2. View Students\n");
-        printf("3. Exit\n");
+    printf("Enter choice: ");
+    scanf("%d", &choice);
 
-        printf("Enter choice: ");
-        scanf("%d", &choice);
+    switch(choice){
 
-        switch(choice) {
+    case 1:
+        printf("Enter Students ID: ");
+        scanf("%d", &students[studentCount].id);
 
-            case 1:
-                printf("Add Student selected\n");
-                break;
+        printf("Enter Student name: ");
+        scanf("%s", students[studentCount].name);
 
-            case 2:
-                printf("View Students selected\n");
-                break;
+        printf("Enter Age: ");
+        scanf("%d", &students[studentCount].age);
 
-            case 3:
-                printf("Exiting program...\n");
-                return 0;
+        printf("Enter Marks: ");
+        scanf("%f", &students[studentCount].marks);
 
-            default:
-                printf("Invalid choice\n");
-        }
+        printf("\nStudent Details\n");
+        printf("ID: %d\n", students[studentCount].id);
+        printf("Student name: %s\n", students[studentCount].name);
+        printf("Age: %d\n", students[studentCount].age);
+        printf("Marks: %.2f\n", students[studentCount].marks);
+
+        studentCount++;
+        break;
+
+    case 2:
+        return 0;
+
+    default:
+        printf("Invalid choice\n");
     }
+
+    return 0;
 }
